@@ -1,0 +1,951 @@
+/* ==========================================================================
+   DexVac / VaxCare — Application Layout & Responsiveness
+   Preserves 100% authentic OldwebUI theme styling (looks, colors, fonts)
+   Provides only page positioning, two-column layout, and mobile drawer
+   ========================================================================== */
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+
+/* Base Reset: positioning & box-sizing only, no font or color overrides */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* Two-Column Dashboard Layout (.r-layout-sidebar) - positioning only */
+.r-layout-sidebar {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Left Navigation Column (.r-sidebar) - positioning & layout */
+.r-sidebar {
+  width: 250px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 20;
+}
+
+/* Sidebar Brand Header */
+.r-sidebar-brand {
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.r-brand-logo {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--r-radius, 4px);
+  background: var(--r-accent, #2563eb);
+  color: var(--r-accent-fg, #ffffff);
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.r-brand-meta h1 {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.1;
+}
+
+.r-brand-meta .brand-sub {
+  margin-top: 2px;
+  font-size: 11px;
+  opacity: 0.75;
+}
+
+/* Sidebar Nav Links Container */
+.r-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 8px;
+  gap: 2px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.r-nav-section {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 12px 10px 4px;
+  opacity: 0.75;
+}
+
+.r-sidebar-nav a i {
+  width: 18px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Sidebar Footer (User Info & Sign Out) */
+.r-sidebar-footer {
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.r-user-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.r-user-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: var(--r-bw, 1px) solid var(--r-border, #ccc);
+  background: var(--r-surface-alt, #f0f0f0);
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.r-user-meta {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.r-user-meta .user-name {
+  font-weight: 600;
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+.r-user-meta .user-role {
+  font-size: 11px;
+  opacity: 0.75;
+}
+
+.r-sign-out-btn {
+  font-size: 12px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 8px;
+  border-radius: var(--r-radius, 4px);
+  white-space: nowrap;
+}
+
+/* Right Content Column (.r-main) - positioning only */
+.r-main {
+  flex: 1;
+  min-width: 0;
+  padding: 20px 28px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+/* Page Header Block inside Main */
+.r-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: var(--r-bw, 1px) solid var(--r-border, #ccc);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.r-header-title h2 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.r-header-title .breadcrumbs {
+  font-size: 12px;
+  margin-top: 3px;
+  opacity: 0.75;
+}
+
+.r-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Metrics Grid - positioning only */
+.r-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.r-metric-card {
+  background: var(--r-surface);
+  border: var(--r-bw, 1px) solid var(--r-border, #ccc);
+  border-radius: var(--r-radius, 4px);
+  box-shadow: var(--r-panel-shadow, none);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.r-metric-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.r-metric-title {
+  font-size: 12px;
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+.r-metric-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--r-radius, 4px);
+  background: var(--r-surface-alt, #f0f0f0);
+  border: var(--r-bw, 1px) solid var(--r-border, #ccc);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.r-metric-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 4px 0 6px;
+}
+
+.r-metric-foot {
+  font-size: 11px;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Card spacing only - looks are 100% handled by OldwebUI .r-card */
+.r-card {
+  margin-bottom: 20px;
+}
+
+/* Tables Responsive Container - layout only */
+.r-table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Link reset */
+.r-link-reset {
+  font-size: 13px;
+  text-decoration: none;
+  padding: 6px 10px;
+}
+
+/* Filter tabs layout */
+.r-filter-tabs {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.r-filter-tabs a {
+  padding: 4px 10px;
+  font-size: 12px;
+  text-decoration: none;
+  border-radius: var(--r-radius, 4px);
+}
+
+/* Native Modal Dialog - sizing & backdrop layout */
+dialog.r-modal {
+  max-width: 500px;
+  width: 90%;
+}
+
+/* ==========================================================================
+   High-Security Official Immunization Certificate Styling & Print System
+   WHO-SVC Compliant, Double Medical Border, Embossed Seal & Verification QR
+   ========================================================================== */
+dialog.r-modal.cert-modal {
+  width: 95vw;
+  max-width: 700px;
+  max-height: 90vh;
+  margin: auto;
+  border-radius: var(--r-radius, 8px);
+  padding: 0;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.25);
+  overflow-y: auto;
+}
+
+.cert-frame {
+  border: 3px double #0284c7;
+  outline: 1px solid rgba(2, 132, 199, 0.35);
+  outline-offset: 4px;
+  padding: 26px 28px;
+  border-radius: 4px;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(2, 132, 199, 0.02) 0%, rgba(255, 255, 255, 0.98) 75%),
+    #ffffff;
+  position: relative;
+  box-shadow: inset 0 0 35px rgba(2, 132, 199, 0.02);
+  text-align: left;
+}
+
+.cert-crest-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+.cert-emblem-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid #0284c7;
+  background: #f0f9ff;
+  color: #0284c7;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cert-authority {
+  text-align: center;
+  flex: 1;
+}
+
+.cert-authority-title {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #0f172a;
+  text-transform: uppercase;
+}
+
+.cert-authority-sub {
+  font-size: 9px;
+  color: #64748b;
+  font-weight: 600;
+  margin-top: 2px;
+  letter-spacing: 0.04em;
+}
+
+.cert-doc-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.cert-doc-id {
+  font-size: 11px;
+  font-family: var(--r-font-mono, monospace);
+  color: #334155;
+  background: #f1f5f9;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.cert-doc-status {
+  font-size: 10px;
+  font-weight: 700;
+  color: #10b981;
+}
+
+.cert-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(2, 132, 199, 0.35), transparent);
+  margin: 12px 0 14px;
+}
+
+.cert-main-heading {
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-align: center;
+  color: #0f172a;
+  margin: 0 0 4px;
+  text-transform: uppercase;
+}
+
+.cert-intro {
+  text-align: center;
+  font-size: 12px;
+  color: #475569;
+  max-width: 580px;
+  margin: 0 auto 16px;
+  line-height: 1.5;
+}
+
+.cert-beneficiary-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #0284c7;
+  padding: 10px 16px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.cert-beneficiary-label {
+  font-size: 9.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #64748b;
+}
+
+.cert-beneficiary-name {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+  margin-top: 2px;
+}
+
+.cert-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 14px;
+  margin-bottom: 18px;
+}
+
+.cert-field {
+  padding: 6px 8px;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.cert-f-label {
+  display: block;
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 2px;
+}
+
+.cert-f-val {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.cert-highlight {
+  color: #0284c7;
+  font-weight: 700;
+}
+
+.cert-footer-row {
+  display: grid;
+  grid-template-columns: 100px 1fr 180px;
+  align-items: center;
+  gap: 14px;
+  padding-top: 14px;
+  border-top: 1px solid #e2e8f0;
+  margin-top: 8px;
+}
+
+.cert-qr-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.cert-qr-code {
+  padding: 4px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  line-height: 0;
+}
+
+.cert-qr-caption {
+  font-size: 8px;
+  color: #64748b;
+  line-height: 1.2;
+  margin-top: 4px;
+  max-width: 90px;
+}
+
+.cert-seal-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.cert-golden-seal {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 3px dashed #d97706;
+  background: radial-gradient(circle, #fef3c7 0%, #fde68a 100%);
+  color: #92400e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(217, 119, 6, 0.18);
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+.cert-golden-seal i {
+  font-size: 15px;
+  margin-bottom: 2px;
+}
+
+.seal-text-top {
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+}
+
+.seal-star {
+  font-size: 7.5px;
+  letter-spacing: 2px;
+  margin: 1px 0;
+}
+
+.seal-text-bot {
+  font-size: 6px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.cert-signatures {
+  text-align: center;
+}
+
+.cert-sig-script {
+  font-family: 'Brush Script MT', 'Dancing Script', cursive, serif;
+  font-size: 19px;
+  color: #1e3a8a;
+  transform: rotate(-3deg);
+  margin-bottom: -4px;
+}
+
+.cert-sig-line {
+  height: 1px;
+  background: #64748b;
+  margin: 4px 0 3px;
+}
+
+.cert-sig-title {
+  font-size: 9.5px;
+  font-weight: 600;
+  color: #475569;
+  text-transform: uppercase;
+}
+
+.cert-sig-meta {
+  font-size: 8.5px;
+  color: #10b981;
+  font-weight: 600;
+}
+
+.cert-watermark-note {
+  margin-top: 14px;
+  font-size: 9px;
+  color: #94a3b8;
+  text-align: center;
+  line-height: 1.4;
+  border-top: 1px dashed #e2e8f0;
+  padding-top: 8px;
+}
+
+/* Print Stylesheet for Certificate */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #bg-canvas,
+  .r-sidebar,
+  .r-mobile-bar,
+  .r-sidebar-backdrop,
+  .r-page-header,
+  .r-modal-footer,
+  .cert-titlebar button,
+  .back-to-top-btn,
+  .r-nav,
+  footer,
+  nav,
+  button {
+    display: none !important;
+  }
+
+  dialog.r-modal.cert-modal {
+    position: static !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+
+  .r-modal-body {
+    padding: 0 !important;
+  }
+
+  .cert-frame {
+    border: 3px double #0f172a !important;
+    outline: 1px solid #475569 !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+    width: 100% !important;
+    max-width: 780px !important;
+    margin: 10px auto !important;
+    padding: 26px !important;
+    background: #ffffff !important;
+  }
+}
+
+/* ==========================================================================
+   Mobile & Responsive Layout System + Hamburger Drawer
+   Maintains all layout positioning, off-canvas sliding, and touch interactions
+   ========================================================================== */
+
+/* Base mobile elements (hidden on desktop) */
+.r-mobile-bar {
+  display: none;
+}
+
+.r-sidebar-close {
+  display: none !important;
+}
+#sidebarCloseBtn{
+  display: none !important;
+}
+
+.r-sidebar-backdrop {
+  display: none;
+}
+
+/* Tablet Breakpoint (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .r-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .r-main {
+    padding: 16px;
+  }
+}
+
+/* Mobile & Tablet Breakpoint (max-width: 768px) */
+@media (max-width: 768px) {
+
+  /* Prevent background scrolling when mobile sidebar is open */
+  body.sidebar-open {
+    overflow: hidden !important;
+  }
+
+  .r-layout-sidebar {
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100dvh;
+    width: 100%;
+  }
+
+  /* Sticky Mobile Bar with Hamburger Button */
+  .r-mobile-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    background: var(--r-surface, #ffffff);
+    border-bottom: var(--r-bw, 1px) solid var(--r-border, #ccc);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .r-mobile-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .r-hamburger-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--r-radius, 4px);
+    border: var(--r-bw, 1px) solid var(--r-border, #ccc);
+    background: var(--r-surface, #ffffff);
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  /* Backdrop Overlay */
+  .r-sidebar-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 99;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  .r-sidebar-backdrop.active {
+    display: block;
+    opacity: 1;
+  }
+
+  /* Off-canvas Sliding Sidebar Drawer */
+  .r-sidebar {
+    position: fixed;
+    top: 0;
+    left: -290px;
+    width: 280px;
+    max-width: 85vw;
+    height: 100vh;
+    height: 100dvh;
+    background: var(--r-surface, #ffffff);
+    z-index: 100;
+    border-right: var(--r-bw, 1px) solid var(--r-border, #ccc);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    transition: left 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .r-sidebar.open {
+    left: 0;
+  }
+
+  .r-sidebar-brand {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+  }
+
+  .r-sidebar-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--r-radius, 4px);
+    border: var(--r-bw, 1px) solid var(--r-border, #ccc);
+    background: var(--r-surface-alt, #f0f0f0);
+    font-size: 15px;
+    cursor: pointer;
+    margin-left: auto;
+  }
+
+  .r-sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 8px;
+    gap: 3px;
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  .r-sidebar-nav a {
+    display: flex;
+    align-items: center;
+    padding: 9px 12px;
+    font-size: 14px;
+    text-align: left;
+    justify-content: flex-start;
+  }
+
+  .r-nav-section {
+    display: block;
+    padding: 12px 10px 4px;
+  }
+
+  .r-sidebar-footer {
+    padding: 12px 14px;
+  }
+
+  /* Main Content Area */
+  .r-main {
+    padding: 14px 12px;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .r-page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+  }
+
+  .r-header-actions {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .r-header-actions .r-btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .r-titlebar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .r-titlebar input {
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  .r-filter-tabs {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .r-grid-4 {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .r-card {
+    margin-bottom: 14px;
+  }
+
+  /* Stack card forms neatly on mobile */
+  .r-card-body > form {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  .r-card-body > form .r-field {
+    width: 100% !important;
+    min-width: 0 !important;
+    flex: none !important;
+  }
+
+  .r-card-body > form button[type="submit"] {
+    width: 100% !important;
+    justify-content: center;
+  }
+
+  .r-table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+  }
+
+  dialog.r-modal {
+    width: calc(100% - 20px) !important;
+    max-width: 580px;
+    margin: auto;
+  }
+
+  .cert-frame {
+    padding: 16px 14px;
+  }
+
+  .cert-crest-row {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .cert-doc-badge {
+    align-items: center;
+  }
+
+  .cert-main-heading {
+    font-size: 1.25rem;
+  }
+
+  .cert-beneficiary-name {
+    font-size: 1.2rem;
+  }
+
+  .cert-details-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .cert-footer-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .cert-signatures {
+    border-top: 1px dashed #e2e8f0;
+    padding-top: 12px;
+  }
+}
+
+/* Small Smartphone Breakpoint (max-width: 480px) */
+@media (max-width: 480px) {
+  .r-header-title h2 {
+    font-size: 1.2rem;
+  }
+
+  .r-metric-value {
+    font-size: 1.5rem;
+  }
+}

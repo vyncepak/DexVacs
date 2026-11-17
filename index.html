@@ -1,0 +1,969 @@
+<!doctype html>
+<html lang="en" data-oldweb="saas2020">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="DexVacs is a vaccination management system for parents, hospitals and administrators: booking, inventory, cold-chain monitoring and digital certificates."
+    />
+    <title>DexVacs - Vaccination Management System (VMS)</title>
+
+    <!-- OldwebUI (saas2020 theme) -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/ChAbdulWahhab/OldwebUI@v1.0.1/dist/oldweb-all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://chabdulwahhab.github.io/OldwebUI/dist/oldweb-all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="./assets/css/index.css">
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div id="scrollbar"></div>
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+    <!-- ===================== NAV ===================== -->
+    <nav class="r-nav" aria-label="Primary">
+      <button
+        type="button"
+        class="hamburger"
+        id="menuBtn"
+        aria-label="Open navigation menu"
+      >
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <a class="r-nav-brand" href="#home"
+        ><span class="brand-mark"><i class="fa-solid fa-syringe"></i></span
+        >DexVacs<sup>VMS</sup></a
+      >
+
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#why-us">Why us</a></li>
+        <li><a href="#manual">User manual</a></li>
+        <li><a href="#compliance">Compliance</a></li>
+        <li><a href="#faqs">FAQs</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a
+          href="./login.php"
+          class="r-btn-primary"
+          ><i class="fa-solid fa-right-to-bracket"></i> Sign In</a
+        >
+      </div>
+    </nav>
+
+    <!-- Mobile drawer -->
+    <div class="backdrop" id="backdrop"></div>
+    <aside class="drawer" id="drawer" aria-label="Mobile navigation">
+      <div class="drawer-header">
+        <span class="r-nav-brand"
+          ><span class="brand-mark"><i class="fa-solid fa-syringe"></i></span
+          >DexVacs<sup>VMS</sup></span
+        >
+        <button
+          type="button"
+          class="r-close"
+          id="drawerClose"
+          aria-label="Close navigation menu"
+        >
+          x
+        </button>
+      </div>
+      <ul class="drawer-nav">
+        <li>
+          <a href="#home"><i class="fa-solid fa-house"></i> Home</a>
+        </li>
+        <li>
+          <a href="#about"><i class="fa-solid fa-circle-info"></i> About</a>
+        </li>
+        <li>
+          <a href="#how"><i class="fa-solid fa-route"></i> How it works</a>
+        </li>
+        <li>
+          <a href="#why-us"><i class="fa-solid fa-check-double"></i> Why us</a>
+        </li>
+        <li>
+          <a href="#manual"
+            ><i class="fa-solid fa-book-medical"></i> User manual</a
+          >
+        </li>
+        <li>
+          <a href="#compliance"
+            ><i class="fa-solid fa-shield-halved"></i> Compliance</a
+          >
+        </li>
+        <li>
+          <a href="#faqs"><i class="fa-solid fa-circle-question"></i> FAQs</a>
+        </li>
+        <li>
+          <a href="#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+        </li>
+      </ul>
+      <div class="drawer-footer">
+        <a href="login.php" class="r-btn r-btn-primary"
+          ><i class="fa-solid fa-right-to-bracket"></i> Sign in to portal</a
+        >
+        <a href="register.php" class="r-btn"
+          ><i class="fa-solid fa-user-plus"></i> Create account</a
+        >
+      </div>
+    </aside>
+
+    <main class="vms-container" id="main">
+      <!-- ===================== HERO ===================== -->
+      <section id="home" class="hero">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="hero-pill">
+              <span class="dot"></span>
+              <i class="fa-solid fa-shield-virus"></i> Vaccination tracking
+              system
+            </div>
+            <h1>
+              Keep track of every shot.<br /><span>Without the paperwork.</span>
+            </h1>
+            <p class="lead">
+              DexVacs brings parents, clinics, and health administrators
+              together. Book appointments, track vaccine stock, monitor
+              cold-chain temperatures, and pull up digital certificates from
+              anywhere.
+            </p>
+            <div class="row">
+              <a href="login.php" class="r-btn r-btn-primary r-btn-lg"
+                ><i class="fa-solid fa-right-to-bracket"></i> Access portal</a
+              >
+              <a href="register.php" class="r-btn r-btn-lg"
+                ><i class="fa-solid fa-user-plus"></i> Create account</a
+              >
+              <a href="#how" class="r-btn r-btn-lg"
+                ><i class="fa-solid fa-circle-play"></i> See how it works</a
+              >
+            </div>
+            <ul class="hero-checks">
+              <li><i class="fa-solid fa-circle-check"></i>Free for parents</li>
+              <li><i class="fa-solid fa-circle-check"></i>Secure records</li>
+              <li>
+                <i class="fa-solid fa-circle-check"></i>Works on phones &
+                computers
+              </li>
+            </ul>
+          </div>
+
+          <div class="hero-visual" aria-hidden="true">
+            <div class="float-chip chip-a">
+              <i class="fa-solid fa-bell"></i>
+              <div>
+                <b>Reminder sent</b><span>Measles dose in 12 days</span>
+              </div>
+            </div>
+            <div class="r-card cert">
+              <div class="r-titlebar">
+                <span
+                  ><i class="fa-solid fa-certificate"></i> Digital vaccination
+                  certificate</span
+                >
+              </div>
+              <div class="r-card-body">
+                <div class="cert-head">
+                  <div class="cert-avatar">
+                    <i class="fa-solid fa-baby"></i>
+                  </div>
+                  <div>
+                    <strong>Ayesha Khan</strong
+                    ><small>DOB 14 Mar 2025 &middot; Blood group B+</small>
+                  </div>
+                  <i class="fa-solid fa-qrcode cert-qr"></i>
+                </div>
+                <ul class="cert-list">
+                  <li>
+                    <i class="fa-solid fa-circle-check ok"></i> BCG
+                    <em>Completed</em>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-circle-check ok"></i> OPV &middot;
+                    Dose 1 <em>Completed</em>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-circle-check ok"></i> Pentavalent
+                    &middot; Dose 1 <em>Completed</em>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-clock due"></i> Measles
+                    <em>Due soon</em>
+                  </li>
+                </ul>
+                <div class="cert-foot">
+                  <i class="fa-solid fa-shield-heart"></i> Verified by DexVacs
+                  network hospital
+                </div>
+              </div>
+            </div>
+            <div class="float-chip chip-c">
+              <i class="fa-solid fa-syringe"></i>
+              <div><b>Dose recorded</b><span>Stock updated</span></div>
+            </div>
+            <div class="float-chip chip-b">
+              <i class="fa-solid fa-temperature-low"></i>
+              <div><b>4.2&deg;C</b><span>Cold chain normal</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- KPI cards -->
+        <div
+          class="r-grid-3"
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+          "
+        >
+          <div class="r-card" data-tip="Total verified doses recorded">
+            <div class="r-titlebar">
+              <span
+                ><i class="fa-solid fa-syringe"></i> Doses administered</span
+              >
+            </div>
+            <div class="r-card-body kpi">
+              <div class="kpi-ico"><i class="fa-solid fa-syringe"></i></div>
+              <div class="num" data-count="1482" data-suffix="+">0</div>
+              <div class="lbl r-muted">Total doses given</div>
+            </div>
+          </div>
+          <div class="r-card">
+            <div class="r-titlebar">
+              <span
+                ><i class="fa-solid fa-hospital"></i> Network hospitals</span
+              >
+            </div>
+            <div class="r-card-body kpi">
+              <div class="kpi-ico g"><i class="fa-solid fa-hospital"></i></div>
+              <div class="num" data-count="260" data-suffix="+">0</div>
+              <div class="lbl r-muted">Partner facilities</div>
+            </div>
+          </div>
+          <div class="r-card">
+            <div class="r-titlebar">
+              <span
+                ><i class="fa-solid fa-snowflake"></i> Cold-chain uptime</span
+              >
+            </div>
+            <div class="r-card-body kpi">
+              <div class="kpi-ico a">
+                <i class="fa-solid fa-temperature-low"></i>
+              </div>
+              <div
+                class="num"
+                data-count="99.98"
+                data-decimals="2"
+                data-suffix="%"
+              >
+                0
+              </div>
+              <div class="lbl r-muted">Maintained at 2&deg;C to 8&deg;C</div>
+            </div>
+          </div>
+          <div class="r-card">
+            <div class="r-titlebar">
+              <span
+                ><i class="fa-solid fa-certificate"></i> Digital
+                certificates</span
+              >
+            </div>
+            <div class="r-card-body kpi">
+              <div class="kpi-ico v"><i class="fa-solid fa-qrcode"></i></div>
+              <div class="num" data-count="100" data-suffix="%">0</div>
+              <div class="lbl r-muted">QR-verifiable records</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product preview (r-split) -->
+        <div class="preview-wrap">
+          <div class="r-card">
+            <div class="r-titlebar">
+              <span
+                ><i class="fa-solid fa-gauge-high"></i> Hospital dashboard
+                preview</span
+              >
+              <span class="r-badge r-badge-ok">Live demo data</span>
+            </div>
+            <div class="r-split">
+              <div class="r-split-pane">
+                <strong>Today's appointments</strong>
+                <div class="queue-item">
+                  <div>
+                    Ayesha K. <small>Pentavalent &middot; 10:00 AM</small>
+                  </div>
+                  <span class="r-badge r-badge-ok">Completed</span>
+                </div>
+                <div class="queue-item">
+                  <div>Hamza R. <small>OPV &middot; 10:30 AM</small></div>
+                  <span class="r-badge r-badge-warn">Checked in</span>
+                </div>
+                <div class="queue-item">
+                  <div>Zainab M. <small>Measles &middot; 11:15 AM</small></div>
+                  <span class="r-badge">Scheduled</span>
+                </div>
+                <div class="queue-item">
+                  <div>Bilal S. <small>BCG &middot; 12:00 PM</small></div>
+                  <span class="r-badge">Scheduled</span>
+                </div>
+              </div>
+              <div class="r-split-divider"></div>
+              <div class="r-split-pane">
+                <strong>Current stock levels</strong>
+                <div class="stock-row" style="margin-top: 12px">
+                  <div class="top"><span>BCG</span><span>82%</span></div>
+                  <progress value="82" max="100"></progress>
+                </div>
+                <div class="stock-row">
+                  <div class="top"><span>OPV</span><span>64%</span></div>
+                  <progress value="64" max="100"></progress>
+                </div>
+                <div class="stock-row">
+                  <div class="top">
+                    <span>Pentavalent</span><span>31%</span>
+                  </div>
+                  <progress value="31" max="100"></progress>
+                </div>
+                <div class="r-alert r-alert-warn" style="margin: 0">
+                  <i class="fa-solid fa-triangle-exclamation"></i> Pentavalent
+                  stock is running low. Time to reorder.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== ABOUT ===================== -->
+      <section id="about">
+        <div class="section-head">
+          <span class="eyebrow">About</span>
+          <h2>How DexVacs helps everyone involved</h2>
+          <p>
+            We built this platform to cut down on missed shots, prevent clinics
+            from running out of vaccines, and give families a dependable way to
+            keep track of their children's health history.
+          </p>
+        </div>
+        <div class="cols">
+          <div class="r-card">
+            <div class="r-titlebar">
+              <span><i class="fa-solid fa-users"></i> For parents</span>
+            </div>
+            <div class="r-card-body">
+              <span class="icon-chip"
+                ><i class="fa-solid fa-child-reaching"></i
+              ></span>
+              <p>
+                Manage records for all your children in one place. Follow
+                recommended timelines for BCG, OPV, Pentavalent, Rotavirus, and
+                Measles, book visits, and print official certificates when you
+                need them.
+              </p>
+            </div>
+            <div class="r-card-footer">
+              <a
+                href="register.php?tab=parent"
+                class="r-btn r-btn-sm r-btn-primary"
+                >Register as parent</a
+              >
+            </div>
+          </div>
+          <div class="r-card">
+            <div class="r-titlebar">
+              <span
+                ><i class="fa-solid fa-hospital"></i> For hospitals &amp;
+                clinics</span
+              >
+            </div>
+            <div class="r-card-body">
+              <span class="icon-chip"
+                ><i class="fa-solid fa-user-doctor"></i
+              ></span>
+              <p>
+                Manage your daily patient queue easily, check IDs on arrival,
+                and log doses. Marking a dose as given updates the patient's
+                record and your inventory counts automatically.
+              </p>
+            </div>
+            <div class="r-card-footer">
+              <a
+                href="register.php?tab=hospital"
+                class="r-btn r-btn-sm r-btn-primary"
+                >Register hospital</a
+              >
+            </div>
+          </div>
+          <div class="r-card">
+            <div class="r-titlebar">
+              <span
+                ><i class="fa-solid fa-user-shield"></i> For
+                administrators</span
+              >
+            </div>
+            <div class="r-card-body">
+              <span class="icon-chip"
+                ><i class="fa-solid fa-chart-line"></i
+              ></span>
+              <p>
+                Oversee the vaccine catalog, review and approve new facilities,
+                track inventory across the network, and make sure every clinic
+                meets standards.
+              </p>
+            </div>
+            <div class="r-card-footer">
+              <a href="login.php" class="r-btn r-btn-sm">Admin gateway</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== HOW IT WORKS ===================== -->
+      <section id="how">
+        <div class="section-head">
+          <span class="eyebrow">How it works</span>
+          <h2>Getting started is simple</h2>
+        </div>
+        <div class="r-card">
+          <div class="r-card-body">
+            <div class="steps">
+              <div class="step">
+                <h3>1. Create a profile</h3>
+                <p>
+                  Sign up as a parent and add your child's basic details and
+                  date of birth.
+                </p>
+              </div>
+              <div class="step">
+                <h3>2. Book an appointment</h3>
+                <p>
+                  Pick a nearby hospital, select the required vaccine, and
+                  choose a date.
+                </p>
+              </div>
+              <div class="step">
+                <h3>3. Visit the clinic</h3>
+                <p>
+                  Show up for the appointment. The clinic staff will verify and
+                  administer the dose.
+                </p>
+              </div>
+              <div class="step">
+                <h3>4. Get your certificate</h3>
+                <p>
+                  The record updates instantly, and you can download or print
+                  the digital certificate.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== WHY US ===================== -->
+      <section id="why-us">
+        <div class="section-head">
+          <span class="eyebrow">Why DexVacs</span>
+          <h2>Why move away from paper cards?</h2>
+          <p>
+            Paper cards easily get lost, and separate clinic logs don't talk to
+            each other. DexVacs keeps everything in one secure, shared system.
+          </p>
+        </div>
+        <div class="r-card">
+          <div class="r-titlebar"><span>Paper records vs DexVacs</span></div>
+          <div class="r-card-body" style="padding: 0; overflow-x: auto">
+            <table class="r-full" style="margin: 0">
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th>Traditional paper records</th>
+                  <th>DexVacs</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Record storage</strong></td>
+                  <td>
+                    <i class="fa-solid fa-xmark" style="color: #dc2626"></i>
+                    Easily lost, torn, or misplaced
+                  </td>
+                  <td>
+                    <span
+                      ><i class="fa-solid fa-check"></i> Safe, permanent digital
+                      storage</span
+                    >
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td><strong>Inventory tracking</strong></td>
+                  <td>
+                    <i class="fa-solid fa-xmark" style="color: #dc2626"></i>
+                    Surprises when stock runs out
+                  </td>
+                  <td>
+                    <span
+                      ><i class="fa-solid fa-check"></i> Real-time stock
+                      updates</span
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Certificates</strong></td>
+                  <td>
+                    <i class="fa-solid fa-xmark" style="color: #dc2626"></i>
+                    Hand-written notes that can be lost
+                  </td>
+                  <td>
+                    <span
+                      ><i class="fa-solid fa-check"></i> Instant, verifiable
+                      digital certificates</span
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Hospital access</strong></td>
+                  <td>
+                    <i class="fa-solid fa-xmark" style="color: #dc2626"></i>
+                    Trapped in one clinic's paper files
+                  </td>
+                  <td>
+                    <span
+                      ><i class="fa-solid fa-check"></i> Accessible across
+                      approved network hospitals</span
+                    >
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== USER MANUAL (tabs) ===================== -->
+      <section id="manual">
+        <div class="section-head">
+          <span class="eyebrow">User manual</span>
+          <h2>How to use the platform</h2>
+          <p class="tab-intro">Select your role to view the instructions.</p>
+        </div>
+        <div class="r-card">
+          <div class="r-card-body">
+            <nav class="r-tabs" role="tablist" aria-label="User roles">
+              <a href="#tab-parent" role="tab" aria-selected="true"
+                ><i class="fa-solid fa-user"></i>Parent</a
+              >
+              <a href="#tab-hospital" role="tab" aria-selected="false"
+                ><i class="fa-solid fa-hospital-user"></i>Hospital</a
+              >
+              <a href="#tab-admin" role="tab" aria-selected="false"
+                ><i class="fa-solid fa-sliders"></i>Administrator</a
+              >
+            </nav>
+
+            <div class="r-tab-panel" id="tab-parent" role="tabpanel">
+              <ol>
+                <li>
+                  <strong>Sign up:</strong> Create an account using your email
+                  and phone number.
+                </li>
+                <li>
+                  <strong>Add children:</strong> Enter your child's name, date
+                  of birth, and blood group.
+                </li>
+                <li>
+                  <strong>Book a visit:</strong> Choose a network hospital, pick
+                  a vaccine, and select a time slot.
+                </li>
+                <li>
+                  <strong>Get your certificate:</strong> After the appointment,
+                  open your child's profile to download or print the
+                  certificate.
+                </li>
+              </ol>
+              <div class="row">
+                <a href="register.php?tab=parent" class="r-btn r-btn-primary"
+                  >Sign up as parent</a
+                ><a href="login.php" class="r-btn">I already have an account</a>
+              </div>
+            </div>
+
+            <div class="r-tab-panel" id="tab-hospital" role="tabpanel" hidden>
+              <ol>
+                <li>
+                  <strong>Register your facility:</strong> Submit your hospital
+                  details for admin approval.
+                </li>
+                <li>
+                  <strong>View your queue:</strong> Check incoming appointment
+                  requests from parents.
+                </li>
+                <li>
+                  <strong>Log completed doses:</strong> Update appointments to
+                  "Completed" once the vaccine is given.
+                </li>
+                <li>
+                  <strong>Track inventory:</strong> Keep an eye on remaining
+                  stock so you can reorder ahead of time.
+                </li>
+              </ol>
+              <div class="row">
+                <a href="register.php?tab=hospital" class="r-btn r-btn-primary"
+                  >Register hospital</a
+                ><a href="login.php" class="r-btn">Hospital sign in</a>
+              </div>
+            </div>
+
+            <div class="r-tab-panel" id="tab-admin" role="tabpanel" hidden>
+              <ol>
+                <li>
+                  <strong>Log in:</strong> Access the admin portal with your
+                  credentials.
+                </li>
+                <li>
+                  <strong>Manage catalog:</strong> Add new vaccines or update
+                  dosage schedules as needed.
+                </li>
+                <li>
+                  <strong>Approve facilities:</strong> Review and activate new
+                  hospitals requesting to join the network.
+                </li>
+                <li>
+                  <strong>Monitor usage:</strong> Keep track of overall
+                  vaccination numbers and system inventory health.
+                </li>
+              </ol>
+              <div class="row">
+                <a href="login.php" class="r-btn r-btn-primary">Admin portal</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== COMPLIANCE ===================== -->
+      <section id="compliance">
+        <div class="section-head">
+          <span class="eyebrow">Compliance</span>
+          <h2>Built with health standards in mind</h2>
+          <p>
+            DexVacs follows established medical guidelines to keep patient
+            information secure and ensure data consistency.
+          </p>
+        </div>
+        <div class="cols">
+          <div class="r-card">
+            <div class="r-titlebar"><span>WHO SVC alignment</span></div>
+            <div class="r-card-body">
+              <span class="icon-chip"><i class="fa-solid fa-globe"></i></span>
+              <p>
+                Our vaccine codes, manufacturer details, and certificate formats
+                align with WHO Smart Vaccination Certificate specifications.
+              </p>
+              <p><span class="r-badge r-badge-primary">WHO aligned</span></p>
+            </div>
+          </div>
+          <div class="r-card">
+            <div class="r-titlebar"><span>Data security</span></div>
+            <div class="r-card-body">
+              <span class="icon-chip"><i class="fa-solid fa-lock"></i></span>
+              <p>
+                We use password hashing, secure database queries, and role-based
+                permissions to protect children's health records.
+              </p>
+              <p>
+                <span class="r-badge r-badge-primary">Role-based access</span>
+              </p>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+
+      <!-- ===================== FAQ ===================== -->
+      <section id="faqs">
+        <div class="section-head">
+          <span class="eyebrow">FAQs</span>
+          <h2>Common questions</h2>
+          <p>
+            Find answers about appointments, child profiles, and certificates.
+          </p>
+        </div>
+        <div class="r-card">
+          <div class="r-card-body">
+            <div class="r-field faq-search">
+              <label for="faqSearch" class="r-muted">Search questions</label>
+              <input
+                id="faqSearch"
+                type="search"
+                class="r-input-block"
+                placeholder="e.g. certificate, booking, hospital..."
+              />
+            </div>
+            <div id="faqList">
+              <details>
+                <summary>
+                  How do I register my child and book an appointment?
+                </summary>
+                <p>
+                  Create a parent account on the
+                  <a href="register.php?tab=parent">registration page</a>. Under
+                  the children section, add your child's profile, then use the
+                  booking tool to pick a hospital, vaccine, and date.
+                </p>
+              </details>
+              <details>
+                <summary>
+                  How do I get my child's vaccination certificate?
+                </summary>
+                <p>
+                  Once the clinic marks a dose as completed, it shows up in your
+                  child's history. Click "View Certificate" to open and print it
+                  whenever you need it.
+                </p>
+              </details>
+              <details>
+                <summary>Can I book appointments for past dates?</summary>
+                <p>
+                  No, the calendar blocks past dates. When a clinic finishes an
+                  appointment, the system automatically subtracts one dose from
+                  their local inventory.
+                </p>
+              </details>
+              <details>
+                <summary>How can hospitals join the platform?</summary>
+                <p>
+                  Hospitals can sign up through the
+                  <a href="register.php?tab=hospital">hospital registration</a>
+                  page. An administrator will review and approve the facility
+                  before it appears in the booking directory.
+                </p>
+              </details>
+              <details>
+                <summary>
+                  What happens if we switch to a different hospital?
+                </summary>
+                <p>
+                  Your records are stored centrally, so any approved network
+                  hospital can view past doses and keep track of future shots
+                  without starting over.
+                </p>
+              </details>
+            </div>
+            <div class="r-alert r-alert-info" id="faq-empty">
+              <i class="fa-solid fa-magnifying-glass"></i> No matching questions
+              found. Feel free to reach out via our contact form.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== CONTACT ===================== -->
+      <section id="contact">
+        <div class="section-head">
+          <span class="eyebrow">Contact</span>
+          <h2>Get in touch</h2>
+          <p>
+            Have questions about joining the network, checking vaccine stock, or
+            using your account? Send us a message.
+          </p>
+        </div>
+        <div class="cols">
+          <div class="r-card">
+            <div class="r-titlebar"><span>Send a message</span></div>
+            <div class="r-card-body">
+              <form id="contactForm">
+                <div class="r-field">
+                  <label for="cName">Full name</label>
+                  <input
+                    id="cName"
+                    type="text"
+                    class="r-input-block"
+                    placeholder="e.g. Dr. Sarah Jenkins"
+                    required
+                  />
+                </div>
+                <div class="r-field">
+                  <label for="cEmail">Email address</label>
+                  <input
+                    id="cEmail"
+                    type="email"
+                    class="r-input-block"
+                    placeholder="sarah@hospital.org"
+                    required
+                  />
+                  <span class="r-hint">We'll use this to email you back.</span>
+                </div>
+                <div class="r-field">
+                  <label for="cCat">Topic</label>
+                  <select id="cCat" class="r-input-block">
+                    <option>Hospital facility onboarding</option>
+                    <option>Vaccine inventory &amp; stock query</option>
+                    <option>Parent account &amp; certificate help</option>
+                    <option>Technical support</option>
+                  </select>
+                </div>
+                <div class="r-field">
+                  <label for="cMsg">Message</label>
+                  <textarea
+                    id="cMsg"
+                    class="r-input-block"
+                    rows="4"
+                    placeholder="How can we help you?"
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="r-btn r-btn-primary">
+                  <i class="fa-solid fa-paper-plane"></i> Send message
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <div class="r-card">
+            <div class="r-titlebar"><span>Direct support info</span></div>
+            <div class="r-card-body">
+              <p><strong>Clinical support desk</strong></p>
+              <ul style="line-height: 1.9; padding-left: 20px">
+                <li>
+                  <i class="fa-solid fa-phone"></i> Emergency support: +1 (800)
+                  555-666
+                </li>
+                <li>
+                  <i class="fa-solid fa-hospital"></i> Hospital helpline: +1
+                  (800) 555-666
+                </li>
+                <li>
+                  <i class="fa-solid fa-envelope"></i>
+                  <a href="mailto:support@dexvacs.org">support@dexvacs.org</a>
+                </li>
+                <li><i class="fa-solid fa-clock"></i> Available 24/7</li>
+              </ul>
+              <hr style="margin: 16px 0" />
+              <p><strong>Office address</strong></p>
+              <p class="r-muted">
+                DexVacs Health Informatics Directorate<br />123 Medical Sciences
+                ABC, Suite 123<br />Healthcare Innovation District
+              </p>
+              <div class="r-alert r-alert-ok" style="margin-top: 14px">
+                <i class="fa-solid fa-circle-check"></i> System status:
+                <strong>All facilities online</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== CTA ===================== -->
+      <section>
+        <div class="cta-band">
+          <h2>Ready to keep your child's vaccinations on track?</h2>
+          <p>Create a parent account or register your clinic today.</p>
+          <div class="row" style="justify-content: center">
+            <a href="register.php" class="r-btn r-btn-lg"
+              ><i class="fa-solid fa-user-plus"></i> Create free account</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Success dialog (OldwebUI modal) -->
+    <dialog id="thanksDialog" class="r-modal">
+      <div class="r-titlebar">
+        <span class="r-titlebar-title">Message sent</span>
+      </div>
+      <div class="r-modal-body">
+        <div class="r-dialog-message">
+          <i
+            class="fa-solid fa-circle-check"
+            style="font-size: 32px; color: #10b981; flex-shrink: 0"
+          ></i>
+          <div>
+            <p><strong>Thanks for reaching out!</strong></p>
+            <p class="r-muted" style="margin: 0">
+              We received your message and will reply by email soon.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="r-modal-footer">
+        <button class="r-btn-primary" data-close>OK</button>
+      </div>
+    </dialog>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="vms-footer">
+      <div class="vms-container">
+        <div class="footer-grid">
+          <div>
+            <div class="footer-logo">
+              <span class="brand-mark"><i class="fa-solid fa-syringe"></i></span
+              >DexVacs<sup>VMS</sup>
+            </div>
+            <p class="footer-desc">
+              A health platform designed to make vaccination records clear,
+              reliable, and accessible for everyone.
+            </p>
+          </div>
+          <div>
+            <h4 class="footer-heading">Quick links</h4>
+            <ul class="footer-links">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#why-us">Why us</a></li>
+              <li><a href="#manual">User manual</a></li>
+              <li><a href="#compliance">Compliance</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="footer-heading">Support</h4>
+            <ul class="footer-links">
+              <li><a href="#contact">Contact support</a></li>
+              <li><a href="#faqs">FAQs</a></li>
+              <li><a href="register.php">Create account</a></li>
+              <li><a href="login.php">Sign in</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          &copy; 2026 DexVacs Immunization Network. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <a
+      href="#home"
+      class="back-to-top-btn"
+      id="toTop"
+      title="Back to top"
+      aria-label="Back to top"
+    >
+      <i class="fa-solid fa-chevron-up"></i><span>Back to top</span>
+    </a>
+
+    <!-- Three.js background -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="assets/js/index.js"></script>
+
+
+  </body>
+</html>
